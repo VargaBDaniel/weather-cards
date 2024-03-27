@@ -32,7 +32,7 @@ export const WeatherDisplay = ({ onClose, ...props }: WeatherDisplayProps) => {
       {/** close button */}
       <button
         onClick={onClose}
-        className="absolute right-3 top-3 z-10 size-6 rounded-full bg-white/30 leading-4"
+        className="absolute right-3 top-3 z-10 size-6 rounded-full bg-brand-red/30 leading-4"
       >
         X
       </button>
@@ -73,6 +73,10 @@ export const WeatherDisplay = ({ onClose, ...props }: WeatherDisplayProps) => {
         <div className="flex gap-2">
           <h2 className="font-bold">Pressure:</h2>
           <p>{props.weather.main.pressure} hPa</p>
+        </div>
+        <div className="flex gap-2">
+          <h2 className="font-bold">Wind speed:</h2>
+          <p>{props.weather.wind.speed} km/h</p>
         </div>
       </div>
     </CardContent>

@@ -34,7 +34,7 @@ export default function Home() {
   };
 
   return (
-    <main className="flex min-h-screen flex-wrap gap-5 bg-black p-16">
+    <main className="flex min-h-screen flex-wrap gap-5 bg-black/90 p-16">
       {weatherCards.map((weatherData, index) => (
         <FlipCard
           key={index}
@@ -44,7 +44,7 @@ export default function Home() {
         />
       ))}
       <Button
-        className="h-80 w-60 rounded-xl text-8xl text-white/80"
+        className="h-80 w-60 rounded-xl bg-brand-blue text-8xl text-white/80 brightness-100 duration-100 hover:bg-brand-blue hover:brightness-75"
         onClick={handleAddCard}
       >
         +

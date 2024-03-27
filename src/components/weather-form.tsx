@@ -68,9 +68,14 @@ export const WeatherForm = ({ onWeatherDataFound }: WeatherFormProps) => {
           ))}
         </div>
 
-        <Button type="submit">Find city</Button>
+        <Button
+          className="bg-brand-green hover:bg-brand-green hover:brightness-75"
+          type="submit"
+        >
+          Find city
+        </Button>
       </form>
-      {isShowError && <p className="text-red-500">City not found</p>}
+      {isShowError && <p className="text-brand-red">City not found</p>}
     </>
   );
 };
