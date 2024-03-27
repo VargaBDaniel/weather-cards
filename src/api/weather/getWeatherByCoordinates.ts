@@ -9,6 +9,7 @@ export default async function getWeatherByCoordinates(
     params: {
       lat: latitude,
       lon: longitude,
+      units: "metric",
     },
   });
 

@@ -1,4 +1,5 @@
 import { WeatherResponse } from "@/types/weather-response";
+import Image from "next/image";
 import { CardContent } from "./ui/card";
 
 type WeatherDisplayProps = {
@@ -23,11 +24,36 @@ export const WeatherDisplay = ({ onClose, ...props }: WeatherDisplayProps) => {
             </p>
             <p className="text-sm">{props.weather.weather[0].description}</p>
           </div>
-          <p className="text-3xl font-semibold">15°</p>
+          <div className="relative size-20">
+            <Image
+              fill
+              objectFit="contain"
+              src={`https://openweathermap.org/img/wn/${props.weather.weather[0].icon}@2x.png`}
+              alt=""
+            />
+          </div>
         </div>
 
         {/** body */}
-        <div className="flex-grow p-4">placeholder</div>
+        <div className="flex flex-grow flex-col gap-2 p-4">
+          <div className="flex gap-2">
+            <h2 className="font-bold">Temperature:</h2>
+            <p>{props.weather.main.temp} °C</p>
+          </div>
+          <div className="flex gap-2">
+            <h2 className="font-bold">Feels like:</h2>
+            <p>{props.weather.main.feels_like} °C</p>
+          </div>
+          <div className="flex gap-2">
+            <h2 className="font-bold">Humidity:</h2>
+            <p>{props.weather.main.humidity}%</p>
+          </div>
+          <div className="flex gap-2">
+            <h2 className="font-bold">Pressure:</h2>
+            <p>{props.weather.main.pressure} hPa</p>
+          </div>
+          {/* {JSON.stringify(props.weather.main, null, 2)} */}
+        </div>
       </CardContent>
     </>
   );
