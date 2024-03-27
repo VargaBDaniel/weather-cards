@@ -2,20 +2,21 @@
 
 import { cn } from "@/lib/utils";
 import { WeatherResponse } from "@/types/weather-response";
-import { useState } from "react";
 import { Card } from "./ui";
 import { WeatherDisplay } from "./weather-display";
 import { WeatherForm } from "./weather-form";
 
 type FlipCardProps = {
   children?: never;
+  weatherData: WeatherResponse | null;
+  setWeatherData: (weatherData: WeatherResponse) => void;
+  onClose: () => void;
   className?: string;
 } & React.HTMLAttributes<HTMLDivElement>;
 
 export const FlipCard = (props: FlipCardProps) => {
-  const { children, className, ...rest } = props;
-
-  const [weatherData, setWeatherData] = useState<WeatherResponse | null>(null);
+  const { children, className, onClose, weatherData, setWeatherData, ...rest } =
+    props;
 
   const isFlipped = Boolean(weatherData);
 
@@ -29,10 +30,7 @@ export const FlipCard = (props: FlipCardProps) => {
       {...rest}
     >
       {weatherData ? (
-        <WeatherDisplay
-          onClose={() => setWeatherData(null)}
-          weather={weatherData}
-        />
+        <WeatherDisplay onClose={onClose} weather={weatherData} />
       ) : (
         <WeatherForm onWeatherDataFound={setWeatherData} />
       )}
