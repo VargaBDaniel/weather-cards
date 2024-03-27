@@ -44,7 +44,7 @@ export default function Home() {
         />
       ))}
       <Button
-        className="h-96 w-72 rounded-lg text-8xl text-white/80"
+        className="h-80 w-60 rounded-xl text-8xl text-white/80"
         onClick={handleAddCard}
       >
         +

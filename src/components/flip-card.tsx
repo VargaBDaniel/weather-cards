@@ -23,7 +23,7 @@ export const FlipCard = (props: FlipCardProps) => {
   return (
     <Card
       className={cn(
-        "animate-flip h-96 w-72 rounded-lg bg-white shadow-lg duration-300",
+        "animate-flip h-80 w-60 overflow-hidden rounded-xl border-none bg-white shadow-lg duration-300",
         className,
         isFlipped ? "animate-flip-card" : "",
       )}
